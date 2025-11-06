@@ -1,4 +1,6 @@
-# Laboratorio 12 
+# Laboratorio 12 - Diego López #23747
+
+Vídeo: <https://youtu.be/oe8b3t0fkrU>
 
 
 Requisitos mínimos

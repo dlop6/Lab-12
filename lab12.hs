@@ -17,9 +17,9 @@ ejercicio1 key =
                     , Car "Xiaomi" 12 "red"
                     ]
       sorter = case key of
-        "model" -> sortBy (comparing model)
-        "make"  -> sortBy (comparing make)
-        "color" -> sortBy (comparing color)
+        "model" -> sortBy (\a b -> compare (model a) (model b))
+        "make"  -> sortBy (\a b -> compare (make a) (make b))
+        "color" -> sortBy (\a b -> compare (color a) (color b))
         _        -> id
   in sorter dictExample
 
@@ -33,6 +33,10 @@ ejercicio2 n = do
   return nEsima
 
 -- Ejercicio 3: generar matriz aleatoria y mostrar su transpuesta
+-- Transpose usando lambdas (versión recursiva)
+transpose' :: [[a]] -> [[a]]
+transpose' = \m -> if null m || any null m then [] else map (\x -> head x) m : transpose' (map (\x -> tail x) m)
+
 ejercicio3 :: IO ()
 ejercicio3 = do
   rows <- randomRIO (2 :: Int, 5 :: Int)
@@ -41,7 +45,7 @@ ejercicio3 = do
   putStrLn "Matriz original:"
   mapM_ print matriz
   putStrLn "Matriz transpuesta:"
-  mapM_ print (transpose matriz)
+  mapM_ print (transpose' matriz)
 
 -- Ejercicio 4: generar lista original de letras (con repeticiones), generar lista de letras a borrar
 -- (menos elementos que la lista original en general) y filtrar usando lambda + filter
