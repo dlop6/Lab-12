@@ -39,16 +39,18 @@ def ejercicio3():
     for fila in traspuesta:
         print(fila)
 
+def ejercicio4():
+    # generar listas aleatorias de letras del alfabeto dentro de la función
+    alphabet = list('abcdefghijklmnopqrstuvwxyz')
+    original = rd.choices(alphabet, k=rd.randint(6, 12))  # con posibles repeticiones
+    to_remove = rd.sample(alphabet, k=rd.randint(3, 8))  # sin repeticiones, puede contener letras no presentes
 
-def ejercicio4(values):
-    # values[0]: lista original, values[1]: lista de elementos a borrar
-    original = values[0]
-    to_remove = values[1]
     filtered_list = list(filter(lambda x: x not in to_remove, original))
+
     print("Lista original:", original)
     print("Elementos a borrar:", to_remove)
     print("Lista filtrada:", filtered_list)
+    return filtered_list
 
-lista = ['rojo', 'verde', 'azul', 'amarillo', 'gris', 'blanco', 'negro']
-eliminar = ['amarillo', 'café', 'blanco']
-ejercicio4([lista, eliminar])
+# Llamada sin argumentos
+ejercicio4()
